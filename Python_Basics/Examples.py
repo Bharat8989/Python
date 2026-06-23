@@ -110,7 +110,7 @@
 
 """List Programs"""
 #  print positive element 
-nums=[12,43,-33,54,12,24,-54,-7,5,-43,24,9]
+# nums=[12,43,-33,54,12,24,-54,-7,5,-43,24,9]
 # print("this is positive numbers:")
 # for num in nums:
 
@@ -123,34 +123,162 @@ nums=[12,43,-33,54,12,24,-54,-7,5,-43,24,9]
 
 #find the list sum of list 
 
-total=sum(nums)
-print("sum of the total numbers:",total)
+# total=sum(nums)
+# print("sum of the total numbers:",total)
 
-mean=total/len(nums)
-print("the average of this give list:",mean)
+# mean=total/len(nums)
+# print("the average of this give list:",mean)
 
-largest=min(nums)
-index=nums.index(largest)
-print(largest)
+# largest=min(nums)
+# index=nums.index(largest)
+# print(largest)
 
 
-print("index:",index)
+# print("index:",index)
 
-greatest=max(nums)
-index=nums.index(greatest)
-print("greatest: ",greatest)
-print("index:",index)
+# greatest=max(nums)
+# index=nums.index(greatest)
+# print("greatest: ",greatest)
+# print("index:",index)
 
-nums.sort()
+# nums.sort()
 
-print("Second Greatest:", nums[-2])
+# print("Second Greatest:", nums[-2])
 
-print("List of duplications ")
-unique=list(set(nums))
-print(unique)
+# print("List of duplications ")
+# unique=list(set(nums))
+# print(unique)
 
-unique=[]
-for num in nums:
-    if num not in unique:
-        unique.append(num)
-print(unique)        
+# unique=[]
+# for num in nums:
+#     if num not in unique:
+#         unique.append(num)
+# print(unique)    
+
+"""Python quick revision notes """
+#variables is named memory location used to store data
+#name variable 
+name="bharat" #name is variable and bharat is values
+#2 data types int float str bool list tuple set dict
+
+# 3 types conversion
+#implicit 
+a=10
+b=22.2
+d=a+b
+print(d)
+print(type(d))
+
+print(f"explicit")
+x="10"
+# print(x)
+print(type(x))
+print(int(x))
+# print(type(x))
+
+# print("input and output")
+# name=input("enter name")
+# print(name)
+# age=int(input("enter age"))
+# print(age)
+
+print("indexing")
+name="Python"
+print(name[0])
+print(name[-1])
+print("slicing")
+print(name[1:4])
+print("reverse string")
+print(name[::-1])
+
+print("odr() and chr()")
+print(ord('A'))
+print(chr(56))
+
+#operators arithmetic comparison logical conditional statements 
+print("conditional statements")
+
+# age=int(input("enter your age:"))
+# if age >=18:
+#     print("adult")
+# else:
+#     print("minor")
+    
+
+print("elif")  
+
+# marks=float(input("enter your marks"))
+# if marks >= 90:
+#     print("A")
+# elif marks >= 70:
+#     print("B")
+# elif marks >= 50:
+#     print("C")
+# else:
+#     print("fail")
+
+# print("loop")
+# #for loop
+# for i in range(1,6):
+#     print(i)
+
+# #while loop
+# i=0
+# while i<=10:
+#     print(i*5)
+#     i +=1
+
+# print("functions \n ")
+# # a function is a reusable block of code 
+
+# def greet():
+#     print("hello")
+# greet()
+
+# #parameters and arguments
+
+# # def add(a,b):
+# #     return a+b
+# # sum=add(23,23)
+# # print(sum)
+# # print(add(32,32))
+
+# #types of arguments
+# # 1 positional
+# # def add(a,b):
+# #    print(a+b)
+# # add(a=10,b=40)
+
+
+# print("list \n")
+# # a list is an ordered mutable collection that allows duplicate elements and heterogeneous data
+
+# #syntax
+# list=[12,12,23,34,56,-5,"Bharat",45.3]
+# print(list)
+# print(list[5])
+# # print(list[5]=34)
+# # list[5]=2
+# # print(list)
+# #important methods
+
+# list.append(400)
+# list.append([300,900])
+# print(list)
+
+# list.insert(5,-5)
+
+# list.remove(400)
+
+# print(list)
+
+# list.pop()
+# print(list)
+# print(list.count("Bharat"))
+# print(list.index("Bharat"))
+# print("sort elements")
+# list.sort()
+# print(list)
+
+# tuple
+print("tuple")
