@@ -25,7 +25,7 @@ class ElectricCar(Car):
 my_EV_car=ElectricCar("tataEv","sierra","89kWh")
 print(my_EV_car.battery_size)
 
-print(my_EV_car.brand)
+# print(my_EV_car.brand)
 print(my_EV_car.full_nameEV())
 print(my_EV_car.full_name())
 
