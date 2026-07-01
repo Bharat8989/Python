@@ -1,48 +1,78 @@
-#value bits and bytes 
-a=65
-print(bin(a))
-print(oct(a))
+# operators 
 
-print(ord('A'))
-print(chr(a))
-b=49
-print(chr(b))
-import sys
-print(sys.getsizeof(a))
-name = "Bharat"
-print(sys.getsizeof(name))
-print(name[5])
-fruits=["apple", "banana", "mango"]
-print(fruits[2])
+# a=int(input("enter the value of a:"))
 
-#stirng slicing 
-Name="SurajKrushnaKadam"
-print(Name[1::2])
-print(Name[0:])
+# if a%2==0:
+#     print('even number')
+# else:
+#     print('odd number')
 
 
-print("conversion of data types ")
-#integer to stirng
-age =23
-print(type(age))
+# assignment operators
 
-age=str(age)
-print(type(age))
+# salary=5000
+# salary =+3000
+# print(salary)
 
-#string to integer 
-integer_age="23"
-print(type(integer_age))
-integer_age=int(integer_age)
-print(type(integer_age))
+# print(f'comparison operators ')
 
-#types of coversion 
-""" implicit type and explicit types 
-    implicit automatic data type change karte
+# a=12;
+# b=23;
 
-   
-   """
-k=20
-j=20.3
-c=j+k
-print(c)
-print(type(c))
+# print(a==b) #false
+# print(a>=12) #true
+# print(a>b)  #false
+# print(a<=b)  #true
+# print(a!=b)  #true
+# print(a<b)  #true
+
+# check adult
+
+# login examples 
+
+# username=(input("enter your username:"))
+# password=(input("enter your password:"))
+
+# if username=="admin" and password=="1234":
+#     print('login successful')
+# else:
+#     print('invalid username or password')
+
+# grade system
+
+# marks=int(input("enter your marks:"))
+
+# if marks >=90:
+#     print("A")
+# elif marks >= 70:
+#     print('B')
+# elif marks >=50:
+#     print('C')
+# else:
+#     print('fail')
+
+# for loop
+# print 1 to 5
+# sum of 1 to 10
+
+# # print("this is python ")
+# print('set')
+# set={23,1,2,3,56,34,4,89,12}
+# print(set)
+
+# object oriented programming
+
+# class Student:
+#     name='bharat'
+# s1=Student()
+# print(s1.name)
+
+class Std:
+    def __init__(self):
+        print('object created')
+        
+    def create(self):
+        print('second method run /functions ')
+        
+s1=Std()
+s1.create()
