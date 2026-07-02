@@ -67,12 +67,31 @@
 # s1=Student()
 # print(s1.name)
 
-class Std:
-    def __init__(self):
-        print('object created')
-        
-    def create(self):
-        print('second method run /functions ')
-        
-s1=Std()
-s1.create()
+# decorators  
+
+# a decorator is functions that modifies the behavior of another functions without changing its original code 
+
+# def decorator(func):
+#     def wrapper():
+#         print('before functions ')
+#         func() 
+#         print('after functions ')
+
+#     return 
+
+
+
+# print(ord('a'))
+# print('num of A:')
+# print(ord('A'))
+# print(ord('B'))
+# print(ord('1')) 
+# print(ord(' '))
+# print(ord('c'))
+# print(ord('B'))
+# print(ord('C'))
+
+# print(repr(chr(127)))
+
+
+
