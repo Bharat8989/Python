@@ -223,15 +223,63 @@
 # print('total',total)
 
 
-print('print all even numbers 1 to 100')
+# print('print all even numbers 1 to 100')
 
-for i in range(2,101,2):
-    print(i)
+# for i in range(2,101,2):
+#     print(i)
 
-print('odd numbers')
-for i in range (1 ,101,2):
-    print(i)
+# print('odd numbers')
+# for i in range (1 ,101,2):
+#     print(i)
     
-print('square of numbers')
-for i in range(1,21):
-    print(i ** 2)
+# print('square of numbers')
+# for i in range(1,21):
+#     print(i ** 2)
+
+
+# lst=[12,23,43,21]
+# print(lst[0])
+# lst.append(23)
+# print(lst)
+
+# lst.remove(23)
+# print(lst)
+# print(len(lst))
+
+# print('exceptions handling')
+
+# def home(amount):
+#     try:
+#         amt=int(amount)
+#         print(f'processing Rs. {amount} withdrawal .....')
+
+#     # except ValueError:
+#     #     print('wrong input please enter valid input (ex. 400)')
+#     except Exception as err:
+#         print(f'wrong input please enter valid input (ex. 400) {err}')
+        
+# home('aa')
+
+# def home():
+#     try:
+        
+#         num =int(input("enter number:"))
+#         print(num)
+#     except Exception as err:
+#         print(f'enter correct output {err}')
+#     finally:
+#         print('program run always ')
+
+# home()
+    
+# print(chr(127))
+
+
+# print(not(None and 'bharat'))
+
+# # print(8 & 8)
+
+# if (13>18):
+#     print('hello')
+
+print('hello'*23)

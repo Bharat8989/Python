@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>
+            <i class="fa-solid fa-user-graduate"></i>
+            Student Management System
+        </h1>
+
+        <!-- ===========================
+                Student Form
+        ============================ -->
+
+        <div class="form-container">
+
+            <div class="form-group">
+
+                <label for="student-name">
+
+                    Student Name
+
+                </label>
+
+                <input
+                    type="text"
+                    id="student-name"
+                    placeholder="Enter Student Name">
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="student-age">
+
+                    Age
+
+                </label>
+
+                <input
+                    type="number"
+                    id="student-age"
+                    placeholder="Enter Age">
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="student-branch">
+
+                    Branch
+
+                </label>
+
+                <select id="student-branch">
+
+                    <option value="">Choose Your Branch</option>
+
+                    <option value="CSE">
+                        Computer Science Engineering
+                    </option>
+
+                    <option value="CE">
+                        Civil Engineering
+                    </option>
+
+                    <option value="ECE">
+                        Electronics & Communication Engineering
+                    </option>
+
+                    <option value="EE">
+                        Electrical Engineering
+                    </option>
+
+                    <option value="ME">
+                        Mechanical Engineering
+                    </option>
+
+                    <option value="IE">
+                        Instrumentation Engineering
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="student-marks">
+
+                    Marks
+
+                </label>
+
+                <input
+                    type="number"
+                    id="student-marks"
+                    placeholder="Enter Marks">
+
+            </div>
+
+            <button id="add-btn">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Student
+
+            </button>
+
+        </div>
+
+        <!-- ===========================
+                Search
+        ============================ -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Search Student">
+
+        </div>
+
+        <!-- ===========================
+                Statistics
+        ============================ -->
+
+        <div class="statistics">
+
+            <div class="stat-card">
+
+                <h3>Total Students</h3>
+
+                <h2 id="total-students">
+
+                    0
+
+                </h2>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Average Marks</h3>
+
+                <h2 id="average-marks">
+
+                    0
+
+                </h2>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Topper</h3>
+
+                <h2 id="topper-name">
+
+                    -
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <!-- ===========================
+                Student List
+        ============================ -->
+
+        <div id="student-list">
+
+            <!-- Student Cards will appear here -->
+
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
