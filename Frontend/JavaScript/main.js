@@ -87,7 +87,7 @@ function displayStudents() {
 
         let statusClass = "";
 
-        if (student.marks >= 35) {
+        if (student.marks >= 40) {
 
             status = "PASS";
 
