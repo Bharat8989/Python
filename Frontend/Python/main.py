@@ -47,3 +47,39 @@ counting_numbers()
 
 print('square number:')
 square_numbers(5)
+
+
+
+text1='gest byte coder'
+print('index for the text1:')
+for index,char in enumerate(text1):
+    
+    print(index ,char) 
+
+
+
+
+text='python'
+print('this is length of text1',len(text1))
+for char in text:
+    print(char)
+    
+    
+text1 = 'gest byte coder'
+i = 0  
+print('counting the manual :')
+for char in text1:
+    print(i, char)
+    i =i+ 1  
+ 
+
+for char in 'hi':
+    
+    print(char)
+    
+    
+for num in "23": 
+    print(num)
+    
+    
+    
