@@ -1,5 +1,6 @@
 from basicPython import print_range_1_10,print_range_10_1,even_odd,print_table
-from basicPython import sum_natural_number,factorial1,sum_using_for_loop
+from basicPython import sum_natural_number,factorial1,sum_using_for_loop,factorial_loop
+from app import counting_numbers,square_numbers
 print('range 1 to 10 :')
 print_range_1_10()
 print('range 10 to 1:')
@@ -33,3 +34,16 @@ sum_using_for_loop(10)
 
 factorial1(5)
 
+factorial_loop(5)
+
+
+
+
+print("***************** import from the app.py ******")
+
+print('counting the number :')
+counting_numbers()
+
+
+print('square number:')
+square_numbers(5)

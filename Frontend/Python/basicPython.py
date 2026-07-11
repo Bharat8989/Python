@@ -27,7 +27,7 @@ def sum_natural_number(num):
     
     
     
-# using the for loop
+# using the for loop  
 
 def sum_using_for_loop(n):
     total_sum = 0
@@ -37,7 +37,21 @@ def sum_using_for_loop(n):
     print('total sum of natural numbers using the for loop:',total_sum)
 
 import math 
+
+
 def factorial1(num):
     result=math.factorial(num)
     # print(result)
     print('factorial:',result)
+    
+    
+def factorial_loop(n):
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return print('result is using the loop:',result)
+
+
+
+
+# print(factorial_loop(5))  
