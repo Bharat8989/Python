@@ -3,11 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DOM Manipulation Practice</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            transition: all 0.3s ease; /* Smooth transition when changing styles */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            border: 2px solid #ddd;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        /* This special class will be toggled on/off by JavaScript */
+        .dark-mode {
+            background-color: #222222;
+            color: #ffffff;
+            border-color: #444;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <h1></h1>
+
+    <!-- The HTML Structure -->
+    <div class="card" id="main-card">
+        <h1 id="title">Hello World</h1>
+        <p id="description">This text will change when you interact with the page.</p>
+        
+        <button id="text-btn">Change Text</button>
+        <button id="theme-btn">Toggle Dark Mode</button>
     </div>
+
+    <!-- The JavaScript Code -->
+    <script>
+        // 1. DOM Selection (Finding the items)
+        const headingElement = document.getElementById("title");
+        const descriptionElement = document.getElementById("description");
+        const cardElement = document.getElementById("main-card");
+        
+        const textButton = document.getElementById("text-btn");
+        const themeButton = document.getElementById("theme-btn");
+
+        // 2. Changing HTML Content
+        textButton.addEventListener("click", () => {
+            // Using innerText to change plain text safely
+            headingElement.innerText = "Welcome to JS!";
+            
+            // Using innerHTML to inject structured tags with styling
+            descriptionElement.innerHTML = "You have successfully used <strong>JavaScript</strong> to modify the DOM.";
+        });
+
+        // 3. Changing CSS Styles
+        themeButton.addEventListener("click", () => {
+            // BEST PRACTICE: Toggle a pre-defined CSS class
+            cardElement.classList.toggle("dark-mode");
+
+            // ALTERNATIVE: Changing inline style directly as a fallback/example
+            if (themeButton.style.backgroundColor === "rgb(40, 167, 69)") { // checks if green
+                themeButton.style.backgroundColor = "#007BFF"; // changes back to blue
+            } else {
+                themeButton.style.backgroundColor = "#28a745"; // changes inline style to green
+            }
+        });
+    </script>
+
 </body>
 </html>

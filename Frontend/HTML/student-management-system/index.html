@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management Dashboard</title>
+    <!-- Link the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🎓 Student Management Dashboard</h1>
+            <p>Add, filter, track, and manage classroom metrics smoothly.</p>
+        </header>
+
+        <!-- Dynamic Summary Info Cards -->
+        <section class="metrics-grid">
+            <div class="card">
+                <h3>Total Students</h3>
+                <p id="total-count">0</p>
+            </div>
+            <div class="card card-passing">
+                <h3>Passing Count</h3>
+                <p id="passing-count">0</p>
+            </div>
+            <div class="card card-average">
+                <h3>Average Score</h3>
+                <p id="average-score">0%</p>
+            </div>
+        </section>
+
+        <main class="dashboard-layout">
+            <!-- Left Side: Registration Intake Form -->
+            <section class="form-section">
+                <h2>📝 Register New Student</h2>
+                <form id="student-form">
+                    <div class="form-group">
+                        <label for="student-name">Full Name</label>
+                        <input type="text" id="student-name" placeholder="e.g. Bharat Kumar" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-role">Course / Role</label>
+                        <input type="text" id="student-role" placeholder="e.g. Fullstack Developer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-score">Final Score (0 - 100)</label>
+                        <input type="number" id="student-score" min="0" max="100" placeholder="e.g. 85" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Add Student Records</button>
+                </form>
+            </section>
+
+            <!-- Right Side: Real-time Live Database Records View -->
+            <section class="table-section">
+                <div class="table-header">
+                    <h2>🗃️ Active Student Database</h2>
+                    <input type="text" id="search-bar" placeholder="Search by name instantly...">
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Role / Track</th>
+                                <th>Score</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="student-table-body">
+                            <!-- Dynamic rows will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Link the external JavaScript engine -->
+    <script src="app.js"></script>
+</body>
+</html>

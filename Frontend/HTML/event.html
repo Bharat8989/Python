@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listeners Practice</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 40px; background-color: #f4f4f4; }
+        .box { width: 200px; height: 100px; background-color: #ffc107; display: flex; 
+               align-items: center; justify-content: center; margin-bottom: 20px; font-weight: bold; }
+        input { padding: 10px; font-size: 16px; width: 250px; }
+        p { font-size: 18px; color: #333; }
+    </style>
+</head>
+<body>
+
+    <!-- Target Elements -->
+    <div id="hover-box" class="box">Hover over me!</div>
+    
+    <input type="text" id="username-input" placeholder="Type your username here...">
+    <p id="output-text">Live Output: </p>
+
+    <script>
+        // 1. Select the DOM elements
+        const hoverBox = document.getElementById("hover-box");
+        const usernameInput = document.getElementById("username-input");
+        const outputText = document.getElementById("output-text");
+
+        // 2. Mouse Event Listeners (Changing box color on hover)
+        hoverBox.addEventListener("mouseenter", () => {
+            hoverBox.style.backgroundColor = "#28a745";
+            hoverBox.innerText = "Thanks!";
+        });
+
+        hoverBox.addEventListener("mouseleave", () => {
+            hoverBox.style.backgroundColor = "#ffc107";
+            hoverBox.innerText = "Hover over me!";
+        });
+
+        // 3. Keyboard/Input Event Listener (Capturing real-time text updates)
+        usernameInput.addEventListener("input", (event) => {
+            // 'event.target.value' captures exactly what the user typed inside the input box
+            outputText.innerText = `Live Output: ${event.target.value}`;
+        });
+    </script>
+
+</body>
+</html>
