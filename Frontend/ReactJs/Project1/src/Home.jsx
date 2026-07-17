@@ -1,3 +1,8 @@
-export default function Welcome() {
-  return <h1>Welcome to React!</h1>;
+export default function Home(){
+  return (
+    <div>
+      <h1>hello world</h1>
+    </div>
+  )
+
 }

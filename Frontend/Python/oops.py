@@ -1,62 +1,124 @@
-# class blueprint or template
-# object is physical instance create from that blueprint
-
-
 # class Student:
-#     print('hello from the class')
-
+#     print("this class object ")
     
-# s1=Student()  # object creation
-# Student()\
-    
-    
-# class Student:
-#     name='bharat'
-    
-#     def hello(self):
-#         print('hello from the class')
+#     def home():
+#         print('home page')
+#     # home()
+#     print(home)
         
-# # Student()
-
-# Student().hello()
+# student =Student()
 
 
-# class Student:
-#     college = "ABC College"  # Class Variable (Shared by all)
+# print(type(student))
 
-#     def __init__(self, name):
-#         self.name = name     # Instance Variable (Unique to each)
 
-# s1 = Student("Bharat")
-# s2 = Student("Amit")
+# student.name='rahul'
+# student.age=20
 
-# print(s1.name, s1.college)  # Output: Bharat ABC College
-# print(s2.name, s2.college)  # Output: Amit ABC College
+# print(student)
 
+
+
+# memory_address=id(data)
+# print(memory_address)
 
 
 # class Student:
-#     name='Bharat'
-#     age=22
+#     def display(self,nav):
+#         self.name=nav
+        
+#     def display1(self):
+#         print('hello',self.name)
+#     display()
+
+# stu=Student()
+
+# stu.display()
+
+
+# method is function inside a class
+
+# class Student:
+#     def display(self):
+#         print(self)
+#         print("hello student")
+        
+#     # display()
+
+        
+# std=Student()
+# std.display()
+# std.display()
+
+
+# class Student:
+#     def __init__(self):
+#         print('constructor called')
+
+# obj1=Student()
+
+
+#  creating multiple object 
+# class Student:
+
+#     def __init__(self, name, age, branch):
+
+#         self.name = name
+#         self.age = age
+#         self.branch = branch
+
+#     def display(self):
+
+#         print("Name :", self.name)
+#         print("Age :", self.age)
+#         print("Branch :", self.branch)
+
+# student1 = Student("Rahul", 20, "CSE")
+# student2 = Student("Amit", 21, "IT")
+
+# student1.display()
+
+# print("----------------")
+
+# student2.display()
+
+
+
+# class Car:
+#     brand='toyota'
+#     species='dog'
+#     print(brand)
     
-#     def desc(self):
-#         print(f'my name is ,{self.name} and i am , {self.age}, years odl')
+#     def make_sound(self):
+#         print(self.species)
+#         print(self.brand)
 
-# obj=Student()
-# obj.desc()
+# obj=Car()
+# obj.make_sound()
 
-# json stand for javaScript object notation . it is a built in package provide in python that is used to store and exchange data
+# class Animal:
+#     type='cat'
+#     def sound(self):
+#         print('meow')
+    
+# # print(Animal().type)
+# obj=Animal()
+# obj.sound()
 
-import json
+class Student :
+    def __init__(self,name):
+        self.name=name     # instance attribute
+        
+obj=Student('bharat')
 
-# json string 
+print(obj)
+print(obj.name)
 
-colors = '["Red", "Yellow", "Green", "Blue"]'
-lst1=json.loads(colors)
-print(lst1)
+class MyClass:
+    @classmethod
+    def class_method(self):
+        print('this is an instance method ')
 
+obj=MyClass()
+obj.class_method()
 
-colors1 = ["Red", "Yellow", "Green", "Blue"]
-
-lst2=json.dumps(colors1)
-print(lst2)

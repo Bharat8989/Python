@@ -61,7 +61,7 @@ def delete(sno):
     if request.method == "POST":
         db.session.delete(todo)
         db.session.commit()
-        return redirect("/")
+        return redirect("/about")
 
     return render_template("delete.html", todo=todo)
 
