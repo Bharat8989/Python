@@ -3,6 +3,7 @@
         "alluser",
         "cursorclass",
         "dotenv",
-        "mysqldb"
+        "mysqldb",
+        "uselist"
     ]
 }

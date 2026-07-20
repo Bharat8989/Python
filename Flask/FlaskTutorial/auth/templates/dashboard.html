@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Working Tailwind CSS Play CDN Link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans min-h-screen flex">
+
+    <!-- 1. Sidebar Navigation Layout -->
+    <aside class="w-64 bg-slate-900 text-slate-100 flex flex-col justify-between hidden md:flex">
+        <div>
+            <!-- Branding Header -->
+            <div class="p-6 border-b border-slate-800 text-center">
+                <h2 class="text-2xl font-bold tracking-wide text-blue-400">AppPanel</h2>
+            </div>
+            <!-- Navigation Links -->
+            <nav class="p-4 space-y-2">
+                <a href="/dashboard" class="flex items-center space-x-3 bg-blue-600 text-white p-3 rounded-lg font-medium transition duration-200">
+                    <span>📊</span> <span>Dashboard</span>
+                </a>
+                <a href="/users" class="flex items-center space-x-3 text-slate-400 hover:bg-slate-800 hover:text-slate-100 p-3 rounded-lg font-medium transition duration-200">
+                    <span>👤</span> <span>Profile Info</span>
+                </a>
+            </nav>
+        </div>
+        <!-- Logout Action Anchor -->
+        <div class="p-4 border-t border-slate-800">
+            <a href="/logout" class="flex items-center justify-center space-x-2 w-full bg-red-600/10 hover:bg-red-600 hover:text-white text-red-400 font-semibold p-2.5 rounded-lg transition duration-200">
+                <span>🚪</span> <span>Sign Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- 2. Main Dashboard Layout Area -->
+    <main class="flex-1 flex flex-col min-h-screen">
+        
+        <!-- Main Top Bar -->
+        <header class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Welcome Back, <span class="text-blue-600">{{ username }}</span>!</h1>
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-blue-100 border border-blue-200 text-blue-600 flex items-center justify-center font-bold uppercase text-lg shadow-sm">
+                    {{ username[0] if username else 'U' }}
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Dynamic Metrics Dashboard View -->
+        <section class="p-8 space-y-8 flex-1">
+            
+            <!-- Statistics Metric Blocks Row -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Session Status Monitor Card -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wider">Account Status</p>
+                        <h3 class="text-2xl font-bold text-emerald-600 mt-1">Active</h3>
+                    </div>
+                    <div class="p-3 bg-emerald-50 text-emerald-600 rounded-lg text-xl">🟢</div>
+                </div>
+
+                <!-- Total Session Logs Counter Card -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wider">Recent Logins</p>
+                        <h3 class="text-2xl font-bold text-gray-800 mt-1">{{ total_logins if total_logins else '1' }}</h3>
+                    </div>
+                    <div class="p-3 bg-blue-50 text-blue-600 rounded-lg text-xl">🕒</div>
+                </div>
+
+                <!-- Active System Database Mappings Tracker Card -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wider">Security Tier</p>
+                        <h3 class="text-2xl font-bold text-purple-600 mt-1">Bcrypt v2</h3>
+                    </div>
+                    <div class="p-3 bg-purple-50 text-purple-600 rounded-lg text-xl">🛡️</div>
+                </div>
+            </div>
+
+            <!-- Login History Activity Audit Log Table -->
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                    <h2 class="text-lg font-bold text-gray-800">Recent Login History Logs</h2>
+                    <span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium uppercase tracking-wider">Real-Time</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 text-gray-500 font-semibold text-xs uppercase tracking-wider border-b border-gray-200">
+                                <th class="px-6 py-4">Event ID</th>
+                                <th class="px-6 py-4">Timestamp (UTC)</th>
+                                <th class="px-6 py-4">Verification Event Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 text-sm text-gray-700">
+                            <!-- Loop through active database records dynamically via Jinja context -->
+                            {% if logs %}
+                                {% for log in logs %}
+                                <tr class="hover:bg-gray-50/50 transition">
+                                    <td class="px-6 py-4 font-medium text-gray-900">#{{ log.id }}</td>
+                                    <td class="px-6 py-4 text-gray-500">{{ log.login_time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                                    <td class="px-6 py-4">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ 'bg-emerald-50 text-emerald-700' if log.status == 'Success' else 'bg-red-50 text-red-700' }}">
+                                            {{ log.status }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                            <!-- Fallback UI placeholder if no row is returned -->
+                            <tr>
+                                <td colspan="3" class="px-6 py-10 text-center text-gray-400 font-medium italic">
+                                    No transaction audit logs captured yet for this user profile session.
+                                </td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Baseline Project Footer Context Area -->
+        <footer class="bg-white border-t border-gray-200 px-8 py-4 text-center text-xs text-gray-400 font-medium">
+            &copy; 2026 AppPanel Relational Auth Architecture System Core. All rights reserved.
+        </footer>
+    </main>
+
+</body>
+</html>
