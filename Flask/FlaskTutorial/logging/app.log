@@ -1,0 +1,12 @@
+2026-07-20 08:56:32,485 - INFO -  * Detected change in 'D:\\PythonWebDev\\Flask\\FlaskTutorial\\logging\\app.py', reloading
+2026-07-20 08:56:32,574 - INFO -  * Restarting with stat
+2026-07-20 08:57:00,978 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-20 08:57:00,978 - INFO - [33mPress CTRL+C to quit[0m
+2026-07-20 08:57:00,979 - INFO -  * Restarting with stat
+2026-07-20 08:57:01,296 - WARNING -  * Debugger is active!
+2026-07-20 08:57:01,297 - INFO -  * Debugger PIN: 601-488-984
+2026-07-20 08:57:04,384 - DEBUG - this debug for the user route
+2026-07-20 08:57:04,385 - INFO - 127.0.0.1 - - [20/Jul/2026 08:57:04] "GET /user HTTP/1.1" 200 -
+2026-07-20 08:57:09,704 - DEBUG - this debug for the user route
+2026-07-20 08:57:09,709 - INFO - 127.0.0.1 - - [20/Jul/2026 08:57:09] "GET /user HTTP/1.1" 200 -

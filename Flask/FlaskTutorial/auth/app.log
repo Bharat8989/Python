@@ -1,0 +1,49 @@
+2026-07-20 10:24:49,373 - [INFO] - app.py:73 - Initializing system architecture setup layers...
+2026-07-20 10:24:49,423 - [INFO] - _internal.py:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-20 10:24:49,423 - [INFO] - _internal.py:97 - [33mPress CTRL+C to quit[0m
+2026-07-20 10:24:49,424 - [INFO] - _internal.py:97 -  * Restarting with stat
+2026-07-20 10:24:49,974 - [INFO] - app.py:73 - Initializing system architecture setup layers...
+2026-07-20 10:24:49,993 - [WARNING] - _internal.py:97 -  * Debugger is active!
+2026-07-20 10:24:50,059 - [INFO] - _internal.py:97 -  * Debugger PIN: 601-488-984
+2026-07-20 10:24:59,066 - [WARNING] - app.py:157 - Unauthorized intrusion blocked at protected path '/dashboard' from network host source: 127.0.0.1
+2026-07-20 10:24:59,067 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:24:59] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2026-07-20 10:24:59,084 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:24:59] "GET /login HTTP/1.1" 200 -
+2026-07-20 10:25:04,654 - [DEBUG] - app.py:81 - Root path entry point accessed by remote client client.
+2026-07-20 10:25:04,657 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:25:04] "GET / HTTP/1.1" 200 -
+2026-07-20 10:25:08,071 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:25:08] "GET /login HTTP/1.1" 200 -
+2026-07-20 10:25:35,083 - [INFO] - app.py:124 - Incoming session initialization request evaluated for address: 'bharat@gmail.com'.
+2026-07-20 10:25:35,374 - [INFO] - app.py:140 - Authorization token matched. User session online for profile context 'bharat'.
+2026-07-20 10:25:35,375 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:25:35] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-07-20 10:25:35,379 - [DEBUG] - app.py:160 - Pulling transactional audit logs for authorized profile session: 'bharat'.
+2026-07-20 10:25:35,395 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:25:35] "GET /dashboard HTTP/1.1" 200 -
+2026-07-20 10:26:53,346 - [DEBUG] - app.py:160 - Pulling transactional audit logs for authorized profile session: 'bharat'.
+
+this is for the dashboard for the user 
+2026-07-20 10:26:53,353 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:26:53] "GET /dashboard HTTP/1.1" 200 -
+2026-07-20 10:27:20,287 - [DEBUG] - app.py:160 - Pulling transactional audit logs for authorized profile session: 'bharat'.
+2026-07-20 10:27:20,290 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:27:20] "GET /dashboard HTTP/1.1" 200 -
+2026-07-20 10:27:22,521 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:27:22] "[33mGET /users HTTP/1.1[0m" 404 -
+2026-07-20 10:27:35,124 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:27:35] "[33mGET /users HTTP/1.1[0m" 404 -
+2026-07-20 10:28:19,431 - [INFO] - _internal.py:97 -  * Detected change in 'D:\\PythonWebDev\\Flask\\FlaskTutorial\\auth\\app.py', reloading
+2026-07-20 10:28:19,548 - [INFO] - _internal.py:97 -  * Restarting with stat
+2026-07-20 10:28:20,098 - [INFO] - app.py:73 - Initializing system architecture setup layers...
+2026-07-20 10:28:20,113 - [WARNING] - _internal.py:97 -  * Debugger is active!
+2026-07-20 10:28:20,115 - [INFO] - _internal.py:97 -  * Debugger PIN: 601-488-984
+2026-07-20 10:28:24,172 - [INFO] - _internal.py:97 -  * Detected change in 'D:\\PythonWebDev\\Flask\\FlaskTutorial\\auth\\app.py', reloading
+2026-07-20 10:28:24,280 - [INFO] - _internal.py:97 -  * Restarting with stat
+2026-07-20 10:29:09,370 - [INFO] - app.py:73 - Initializing system architecture setup layers...
+2026-07-20 10:29:09,394 - [INFO] - _internal.py:97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-20 10:29:09,395 - [INFO] - _internal.py:97 - [33mPress CTRL+C to quit[0m
+2026-07-20 10:29:09,398 - [INFO] - _internal.py:97 -  * Restarting with stat
+2026-07-20 10:29:09,890 - [INFO] - app.py:73 - Initializing system architecture setup layers...
+2026-07-20 10:29:09,905 - [WARNING] - _internal.py:97 -  * Debugger is active!
+2026-07-20 10:29:09,908 - [INFO] - _internal.py:97 -  * Debugger PIN: 601-488-984
+2026-07-20 10:29:15,174 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:29:15] "[33mGET /users HTTP/1.1[0m" 404 -
+2026-07-20 10:29:22,052 - [INFO] - _internal.py:97 -  * Detected change in 'D:\\PythonWebDev\\Flask\\FlaskTutorial\\auth\\app.py', reloading
+2026-07-20 10:29:22,165 - [INFO] - _internal.py:97 -  * Restarting with stat
+2026-07-20 10:29:22,967 - [INFO] - app.py:73 - Initializing system architecture setup layers...
+2026-07-20 10:29:22,983 - [WARNING] - _internal.py:97 -  * Debugger is active!
+2026-07-20 10:29:22,984 - [INFO] - _internal.py:97 -  * Debugger PIN: 601-488-984
+2026-07-20 10:29:26,291 - [INFO] - _internal.py:97 - 127.0.0.1 - - [20/Jul/2026 10:29:26] "GET /users HTTP/1.1" 200 -

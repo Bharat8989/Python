@@ -1,8 +1,22 @@
 import bcrypt
+import logging  # 1. Brought in the default internal library engine
 from datetime import datetime, timezone
 from flask import Flask, request, redirect, render_template, session
 
 app = Flask(__name__)
+
+# ---- 2. DETAILED LOGGING CONFIGURATION STRUCTURE ----
+log_level = logging.DEBUG
+log_file = 'app.log'
+log_file_mode = 'a'
+log_format = '%(asctime)s - [%(levelname)s] - %(filename)s:%(lineno)d - %(message)s'
+
+logging.basicConfig(
+    level=log_level,
+    filename=log_file,
+    filemode=log_file_mode,
+    format=log_format
+)
 
 # Database Configuration (Using SQLite database file)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -26,7 +40,6 @@ class Register(db.Model):
     mobile_number = db.Column(db.String(15), nullable=False)
     password = db.Column(db.String(255), nullable=False)
     
-    # Establish relationship mapping link to query history easily from the dashboard
     login_history = db.relationship('Login', backref='user', lazy=True)
 
     def __init__(self, username, email, mobile_number, password):
@@ -34,7 +47,6 @@ class Register(db.Model):
         self.email = email
         self.mobile_number = mobile_number
         
-        # Encrypting password using standard bcrypt.hashpw and bcrypt.gensalt
         hashed_bytes = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
         self.password = hashed_bytes.decode('utf-8')
 
@@ -47,11 +59,7 @@ class Login(db.Model):
     __tablename__ = 'login_history'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    
-    # Foreign Key linking this activity record to the specific User ID in 'alluser' table
     user_id = db.Column(db.Integer, db.ForeignKey('alluser.id', ondelete='CASCADE'), nullable=False)
-    
-    # FIX: Modern Timezone-safe UTC standard initialization
     login_time = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)
     status = db.Column(db.String(50), default='Success', nullable=False)
 
@@ -60,16 +68,19 @@ class Login(db.Model):
         self.status = status
 
 
-# FIX: Moved db.create_all() down HERE so BOTH tables are properly created on startup
+# Initialize database context structures
 with app.app_context():
+    logging.info("Initializing system architecture setup layers...")
     db.create_all()
 
 
-# ---- 3. ROUTE CONTROLLERS ----
+# ---- 3. ROUTE CONTROLLERS WITH STRATEGIC LOGGING EVENTS ----
 
 @app.route('/')
 def index():
+    logging.debug("Root path entry point accessed by remote client client.")
     return render_template('home.html')
+
 
 # ---- USER REGISTRATION ----
 @app.route('/register', methods=['GET', 'POST'])
@@ -80,15 +91,25 @@ def register():
         mobile_number = request.form.get('mobile_number')
         password = request.form.get('password')
         
+        logging.info(f"Processing a registration attempt for username: '{username}', email: '{email}'.")
+        
         existing_user = Register.query.filter((Register.username == username) | (Register.email == email)).first()
         if existing_user:
+            # High-priority Warning alert tracking unique field validation rejections
+            logging.warning(f"Registration rejected. Duplicate data found for '{username}' or '{email}'.")
             return "Registration error: Username or Email is already taken.", 400
 
-        new_user = Register(username=username, email=email, mobile_number=mobile_number, password=password)
-        
-        db.session.add(new_user)
-        db.session.commit()
-        return redirect('/login')
+        try:
+            new_user = Register(username=username, email=email, mobile_number=mobile_number, password=password)
+            db.session.add(new_user)
+            db.session.commit()
+            
+            logging.info(f"Successfully finalized database insertion record for profile: '{username}'.")
+            return redirect('/login')
+        except Exception as database_error:
+            # Exception context capture logs full trace data on deep processing failures
+            logging.error(f"Critical internal error executing registration transaction pipeline: {str(database_error)}")
+            return "Internal Server Error", 500
         
     return render_template('register.html')
 
@@ -100,50 +121,59 @@ def login():
         email = request.form.get('email')
         password = request.form.get('password')
 
+        logging.info(f"Incoming session initialization request evaluated for address: '{email}'.")
+
         if not email or not password:
+            logging.warning("Authentication interrupted due to missing request fields.")
             return "Error: Please fill in all fields.", 400
 
         user = Register.query.filter_by(email=email).first()
 
         if user and user.check_password(password):
-            # Store session variables to keep user logged in across pages
             session['user_id'] = user.id
             session['username'] = user.username
             
-            # LOG EVENT: Add a new entry into your login tracker table
             login_log = Login(user_id=user.id, status='Success')
             db.session.add(login_log)
             db.session.commit()
             
+            logging.info(f"Authorization token matched. User session online for profile context '{user.username}'.")
             return redirect('/dashboard')
         else:
+            logging.warning(f"Access Denied. Failed authentication credential signature on destination mapping target: '{email}'.")
             return "Authentication failed: Invalid Email or Password.", 401
             
     return render_template('login.html')
 
 
 # ---- SECURE DASHBOARD LANDING VIEW ----
-@app.route('/dashboard' ,methods =['GET'])
+@app.route('/dashboard', methods=['GET'])
 def dashboard():
-    # FIX: Securely use .get() instead of a hard bracket lookup to prevent KeyError crashes
     user_id = session.get('user_id')
     username = session.get('username')
     
     if not username:
-        return redirect('/login')  # Safely redirect unauthorized traffic back to login page
+        # Tracks potential security breach movements cleanly to warn system admins
+        logging.warning(f"Unauthorized intrusion blocked at protected path '/dashboard' from network host source: {request.remote_addr}")
+        return redirect('/login')
 
-    # Fetch this specific user's login logs to render in the HTML table
+    logging.debug(f"Pulling transactional audit logs for authorized profile session: '{username}'.")
     user_logs = Login.query.filter_by(user_id=user_id).order_by(Login.login_time.desc()).all()
     
-    # Render template with variables passed cleanly to match our Jinja code
     return render_template('dashboard.html', username=username, logs=user_logs, total_logins=len(user_logs))
 
 
 # ---- LOGOUT CONTROLLER ----
 @app.route('/logout')
 def logout():
-    session.clear()  # Clear cookies to destroy user session context
+    username = session.get('username', 'Unknown')
+    session.clear()
+    logging.info(f"User profile session successfully cleared from system host for client: '{username}'.")
     return redirect('/login')
+
+@app.route('/users')
+def user():
+    return 'this is the profile info page '
 
 
 if __name__ == '__main__':
