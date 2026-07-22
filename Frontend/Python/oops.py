@@ -1,124 +1,54 @@
-# class Student:
-#     print("this class object ")
+# class Fruit:
+#     def __init__(self,name,age):
+#         self.student_name=name
+#         self.student_age=age
+#         # print(name)
+#         # print(age)
+        
+#     def display(self,data):
+#         self.data=data
+       
+#         print(self.student_name)
+#         print(self.student_age)
+#         print(data)
     
-#     def home():
-#         print('home page')
-#     # home()
-#     print(home)
-        
-# student =Student()
+# f=Fruit('bharat',23)
 
-
-# print(type(student))
-
-
-# student.name='rahul'
-# student.age=20
-
-# print(student)
+# f.display("hello")
+# Fruit('pavan',21).display('print')
+# ff.display('world')
 
 
 
-# memory_address=id(data)
-# print(memory_address)
-
-
-# class Student:
-#     def display(self,nav):
-#         self.name=nav
-        
-#     def display1(self):
-#         print('hello',self.name)
-#     display()
-
-# stu=Student()
-
-# stu.display()
-
-
-# method is function inside a class
-
-# class Student:
-#     def display(self):
-#         print(self)
-#         print("hello student")
-        
-#     # display()
-
-        
-# std=Student()
-# std.display()
-# std.display()
-
-
-# class Student:
-#     def __init__(self):
-#         print('constructor called')
-
-# obj1=Student()
-
-
-#  creating multiple object 
-# class Student:
-
-#     def __init__(self, name, age, branch):
-
-#         self.name = name
-#         self.age = age
-#         self.branch = branch
-
-#     def display(self):
-
-#         print("Name :", self.name)
-#         print("Age :", self.age)
-#         print("Branch :", self.branch)
-
-# student1 = Student("Rahul", 20, "CSE")
-# student2 = Student("Amit", 21, "IT")
-
-# student1.display()
-
-# print("----------------")
-
-# student2.display()
 
 
 
-# class Car:
-#     brand='toyota'
-#     species='dog'
-#     print(brand)
-    
-#     def make_sound(self):
-#         print(self.species)
-#         print(self.brand)
+# aata norma class bg 
 
-# obj=Car()
-# obj.make_sound()
+# class Fruit1:
+#     name='pavan'
+#     def info(name):
+#         print(name)
 
-# class Animal:
-#     type='cat'
-#     def sound(self):
-#         print('meow')
-    
-# # print(Animal().type)
-# obj=Animal()
-# obj.sound()
+# f1=Fruit1()
+# f1.info()
 
-class Student :
+
+class Student:
+    school_name="government collage of engineering chandrapur"  # this is for the class attribute 
+    namechange='pavan'
     def __init__(self,name):
-        self.name=name     # instance attribute
+        self.name1=name  # this is call the instance attribute 
+        # print(f'my name is {name1} and school name is :{self.school_name}')
+        print(self.name1)
+        print(self.school_name)
+        print(self.namechange)
         
-obj=Student('bharat')
+s=Student('bharat')
 
-print(obj)
-print(obj.name)
+s.school_name='ksk collage'
+print(s.school_name)
+s.namechange='pooja'
 
-class MyClass:
-    @classmethod
-    def class_method(self):
-        print('this is an instance method ')
-
-obj=MyClass()
-obj.class_method()
+print(s.namechange)
 
