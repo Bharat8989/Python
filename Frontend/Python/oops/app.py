@@ -133,11 +133,59 @@ print(f'name:{lowest_student['name']}  | lowest_marks:{lowest_student['marks']}'
 
 # calculate age 
 
-def calculateAge():
-    current_year=datetime.now().year
-    for student in Students:
-        birth_year=int(student['date_of_birth'][:4])
-        age=current_year-birth_year
-        print(f'{student['name']}:{age} year')
+# def calculateAge():
+#     current_year=datetime.now().year
+#     for student in Students:
+#         birth_year=int(student['date_of_birth'][:4])
+#         age=current_year-birth_year
+#         print(f'{student['name']}:{age} year')
         
+# calculateAge()
+
+
+
+def calculateAge():
+    today = datetime.today()
+
+    for student in Students:
+        birth_date = datetime.strptime(
+            student["date_of_birth"],
+            "%Y-%m-%d"
+        ).date()
+
+        years = today.year - birth_date.year
+        months = today.month - birth_date.month
+        days = today.day - birth_date.day
+
+        if days < 0:
+            months -= 1
+
+            previous_month = today.month - 1
+
+            if previous_month == 0:
+                previous_month = 12
+                previous_year = today.year - 1
+            else:
+                previous_year = today.year
+            days_in_previous_month = (
+                datetime(previous_year, previous_month + 1, 1)
+                - datetime(previous_year, previous_month, 1)
+            ).days if previous_month != 12 else 31
+
+            days += days_in_previous_month
+
+        if months < 0:
+            years -= 1
+            months += 12
+
+        if (today.month, today.day) < (birth_date.month, birth_date.day):
+            years -= 1
+            
+            
+        print(
+            f"{student['name']}: "
+            f"{years} years, {months} months, and {days} days"
+        )
+
+
 calculateAge()

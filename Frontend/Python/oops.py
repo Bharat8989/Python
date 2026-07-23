@@ -109,3 +109,30 @@ print(s.student_marks(40))
 
 # print(s.age)
 
+
+
+class Bharat:
+    collageName="ksk college"
+    def __init__(self,name,rollNo):
+        self.name=name
+        self.rollNo=rollNo
+        
+        
+        
+    def display(self):
+        print(self.collageName) 
+        print(Bharat.collageName)
+        print(self.name)
+        print(self.rollNo)
+
+        
+# Bharat("pavan",12)
+obj=Bharat("pavan",12)
+# obj=Bharat("pavan",12)
+# obj.collageName="GCOEC"
+obj.display()
+
+
+# Bharat.display()
+# Bharat('pavan,1')
+# Bharat('pavan,1')
