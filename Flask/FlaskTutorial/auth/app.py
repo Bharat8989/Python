@@ -1,4 +1,5 @@
 import bcrypt
+from auth.middleware import auth
 import logging  # 1. Brought in the default internal library engine
 from datetime import datetime, timezone
 from flask import Flask, request, redirect, render_template, session
@@ -147,20 +148,34 @@ def login():
 
 
 # ---- SECURE DASHBOARD LANDING VIEW ----
-@app.route('/dashboard', methods=['GET'])
+@app.route('/dashboard')
+@auth
 def dashboard():
-    user_id = session.get('user_id')
-    username = session.get('username')
-    
-    if not username:
-        # Tracks potential security breach movements cleanly to warn system admins
-        logging.warning(f"Unauthorized intrusion blocked at protected path '/dashboard' from network host source: {request.remote_addr}")
-        return redirect('/login')
+    user_id = session.get("user_id")
 
-    logging.debug(f"Pulling transactional audit logs for authorized profile session: '{username}'.")
-    user_logs = Login.query.filter_by(user_id=user_id).order_by(Login.login_time.desc()).all()
-    
-    return render_template('dashboard.html', username=username, logs=user_logs, total_logins=len(user_logs))
+    if not user_id:
+        return redirect("/login")
+
+    user = Register.query.get(user_id)
+
+    if user is None:
+        session.clear()
+        return redirect("/login")
+
+    logging.debug(f"Loading dashboard for user '{user.username}'.")
+
+    user_logs = (
+        Login.query.filter_by(user_id=user.id)
+        .order_by(Login.login_time.desc())
+        .all()
+    )
+
+    return render_template(
+        "dashboard.html",
+        username=user.username,
+        logs=user_logs,
+        total_logins=len(user_logs)
+    )
 
 
 # ---- LOGOUT CONTROLLER ----

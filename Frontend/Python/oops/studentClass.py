@@ -46,7 +46,8 @@ class Student:
             
             
       pass  
-        
+     
+       
 
 s1 = Student(1, "Bharat", "12-05-2003", 85, 62.5)
 s2 = Student(2, "Rahul", "22-08-2004", 78, 65.0)

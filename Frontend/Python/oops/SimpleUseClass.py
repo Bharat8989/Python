@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from dateutil.relativedelta import relativedelta 
+
 class Student:
 
     raw_data = [
@@ -70,9 +72,62 @@ class Student:
         print(f"Lowest Marks : {min_student['name']} ({min_student['marks']} Marks)")
         print("--------------------")
 
+    # count year 
+    # def countYear(self):
+    #     print("\n--- Student Age Analysis (Years, Months, Days) ---")
+        
+        
+    #     today = datetime.now()
+        
+    #     for student in Student.raw_data:
+    #         dob_obj = datetime.strptime(student['date_of_birth'], "%d-%m-%Y")
+            
+           
+    #         diff = today - dob_obj
+            
+           
+    #         total_days = diff.days
+    #         years = total_days // 365
+    #         remaining_days = total_days % 365
+    #         months = remaining_days // 30
+    #         days = remaining_days % 30
+            
+           
+    #         print(f"Name: {student['name']:<8} | Age: {years} Years, {months} Months, {days} Days")
+            
+    #     print("--------------------")
+
+    def countYear(self):
+        print("\n--- Student Age Analysis (Years, Months, Days) ---")
+        today = datetime.now()
+        for student in Student.raw_data:
+            dob_obj = datetime.strptime(student['date_of_birth'], "%d-%m-%Y")
+            diff = relativedelta(today, dob_obj)
+            print(f"Name: {student['name']:<8} | Age: {diff.years} Years, {diff.months} Months, {diff.days} Days")
+        print("--------------------")
+        
+    def nextBirthday(self):
+        print("\n--- Next Birthday Analysis ---")
+        today = datetime.now()
+        
+        for student in Student.raw_data:
+            dob = datetime.strptime(student['date_of_birth'], "%d-%m-%Y")
+            
+            next_bday = datetime(today.year, dob.month, dob.day)
+            
+            if next_bday < today:
+                next_bday = datetime(today.year + 1, dob.month, dob.day)
+                
+            days_left = (next_bday - today).days + 1
+            
+            print(f"Name: {student['name']:<8} | Next Birthday: {next_bday.strftime('%d-%m-%Y')} | Days Left: {days_left} Days")
+        print("--------------------")
+
 
 s1 = Student(10, "Karan", "2003-05-12", 85, 62.5)
 s2 = Student(11, "Kiran", "2004-08-22", 78, 65.0)
 
 s1.average_of_marks()
 s1.min_max_marks()
+
+s1.countYear()
