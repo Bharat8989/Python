@@ -58,3 +58,15 @@ print(len(data))
 print(max(data))
 print(min(data))
 print(sum(data))
+
+
+def home():
+    print("hello world")
+
+home()
+
+def about():
+    print("hello this is about page")
+about()
+
+

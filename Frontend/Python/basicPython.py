@@ -39,7 +39,7 @@ def sum_using_for_loop(n):
 import math 
 
 
-def factorial1(num):
+def factorial1(num): 
     result=math.factorial(num)
     # print(result)
     print('factorial:',result)

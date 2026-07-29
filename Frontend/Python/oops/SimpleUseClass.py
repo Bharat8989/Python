@@ -108,26 +108,25 @@ class Student:
         
     def nextBirthday(self):
         print("\n--- Next Birthday Analysis ---")
-        today = datetime.now()
-        
+        today = datetime.now().date()
         for student in Student.raw_data:
-            dob = datetime.strptime(student['date_of_birth'], "%d-%m-%Y")
-            
-            next_bday = datetime(today.year, dob.month, dob.day)
-            
-            if next_bday < today:
-                next_bday = datetime(today.year + 1, dob.month, dob.day)
-                
-            days_left = (next_bday - today).days + 1
-            
-            print(f"Name: {student['name']:<8} | Next Birthday: {next_bday.strftime('%d-%m-%Y')} | Days Left: {days_left} Days")
+            dob = datetime.strptime(student['date_of_birth'], "%d-%m-%Y").date()
+            next_bday = datetime(today.year, dob.month, dob.day).date()
+            if next_bday == today:
+                print(f"Name: {student['name']:<8} | Next Birthday: {next_bday.strftime('%d-%m-%Y')} | Today is Birthday!")
+            else:
+                if next_bday < today:
+                    next_bday = datetime(today.year + 1, dob.month, dob.day).date()
+                days_left = (next_bday - today).days
+                print(f"Name: {student['name']:<8} | Next Birthday: {next_bday.strftime('%d-%m-%Y')} | Days Left: {days_left} Days")
         print("--------------------")
 
 
-s1 = Student(10, "Karan", "2003-05-12", 85, 62.5)
+s1 = Student(10, "Karan", "2003-07-25", 85, 62.5)
 s2 = Student(11, "Kiran", "2004-08-22", 78, 65.0)
 
 s1.average_of_marks()
 s1.min_max_marks()
 
 s1.countYear()
+s1.nextBirthday()
