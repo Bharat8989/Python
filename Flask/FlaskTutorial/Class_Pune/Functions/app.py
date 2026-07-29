@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'Welcome to the Flask Calculator App! Use  /add/10/5, /sub/10/5, or /mult/10/5 in the URL.'
+    return 'Welcome to the Flask Calculator App! Use  /add/10/15,  /sub/10/5, or    /mult/10/5 in the URL.'
 
 @app.route('/add/<int:num1>/<int:num2>')
 def add(num1, num2):
