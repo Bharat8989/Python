@@ -34,7 +34,7 @@ def additions():
         result = num1 + num2
         
         return jsonify({
-            "message": "Addition successful (via POST)",
+            "message": "Addition successful ",
             "num1": num1,
             "num2": num2,
             "result": result
@@ -45,7 +45,7 @@ def additions():
     result = num1 + num2
     
     return jsonify({
-        "message": "Showing data via GET",
+        "message": "Showing data ",
         "num1": num1,
         "num2": num2,
         "result": result
@@ -53,3 +53,5 @@ def additions():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
+print("hello")
