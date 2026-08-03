@@ -4,6 +4,7 @@
         "cursorclass",
         "dotenv",
         "mysqldb",
+        "pagesizes",
         "uselist"
     ]
 }

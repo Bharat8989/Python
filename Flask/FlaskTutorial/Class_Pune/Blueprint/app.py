@@ -6,7 +6,7 @@ from admin import admin_bp
 app=Flask(__name__)
 
 app.register_blueprint(farmer_bp, url_prefix='/farmer_up')
-app.register_blueprint(admin_bp, url_prefix='/farmer_down')
+app.register_blueprint(admin_bp, url_prefix='')
 
 @app.route('/')
 def hello_world():

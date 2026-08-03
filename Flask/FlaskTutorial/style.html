@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Login Page</title>
+    
+    <style>
+        /* --- तुम्ही दिलेली मूळ CSS स्टाईल --- */
+        body {
+            background: #fff;
+            color: #1c1e21;
+            direction: ltr;
+            line-height: 1.34;
+            margin: 0;
+            padding: 0;
+            unicode-bidi: embed;
+        }
+
+        body, button, input, label, select, td, textarea {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        div {
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        #globalContainer {
+            margin: 0 auto;
+            position: relative;
+            max-width: 400px; /* फॉर्म स्क्रीनच्या मध्यभागी व्यवस्थित दिसण्यासाठी */
+            margin-top: 100px; /* वरून थोडी जागा सोडण्यासाठी */
+        }
+
+        .uiContextualLayerParent {
+            position: relative;
+            padding: 25px;
+            border: 1px solid #dddfe2;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+            background-color: #ffffff;
+        }
+
+        /* --- लॉगिन पेज अधिक आकर्षक बनवण्यासाठी अतिरिक्त स्टाईल --- */
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1877f2; /* फेसबुक सारखा निळा रंग */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input[type="text"], 
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            border-color: #1877f2;
+            outline: none;
+            box-shadow: 0 0 0 2px #e7f3ff;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group input {
+            margin-right: 8px;
+        }
+
+        button.login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #1877f2;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button.login-btn:hover {
+            background-color: #166fe5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- तुम्ही दिलेल्या ID नुसार मुख्य कंटेनर -->
+    <div id="globalContainer">
+        
+        <!-- लॉगिन बॉक्सचा पॅरेंट क्लास -->
+        <div class="uiContextualLayerParent">
+            <h2>Sign In</h2>
+            
+            <!-- Django चा सुरक्षित फॉर्म -->
+            <form method="POST" action="{% url 'custom_login' %}">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                
+                <!-- आपण आधी शिकलेले 'Remember Me' चे फीचर इथल्या चेकबॉक्सवर काम करेल -->
+                <div class="checkbox-group">
+                    <input type="checkbox" name="remember_me" id="remember">
+                    <label for="remember">Remember Me</label>
+                </div>
+                
+                <button type="submit" class="login-btn">Log In</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
