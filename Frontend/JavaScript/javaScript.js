@@ -55,3 +55,5 @@ h1Tag.addEventListener('click',() => alert("button clicked"))
 
 const paragraph12=document.getElementById('paragraph');
 // paragraph12.addEventListener('dblclick',() => )
+
+
