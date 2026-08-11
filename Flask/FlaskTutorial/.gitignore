@@ -1,0 +1,14 @@
+# Ignore the virtual environment
+Flask/FlaskTutorial/venv/
+venv/
+ENV/
+
+# Ignore Python cache and compiled files
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore IDE configs (Optional but recommended)
+.vscode/
+.idea/
