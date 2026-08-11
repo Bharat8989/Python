@@ -29,7 +29,7 @@ app.secret_key = 'super_secret_session_encryption_key'
 from flask_sqlalchemy import SQLAlchemy
 # Initialize SQLAlchemy
 db = SQLAlchemy(app)
-
+ 
 
 # ---- 1. REGISTER TABLE MODEL ----
 class Register(db.Model):
