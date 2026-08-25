@@ -29,10 +29,10 @@ function App() {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>React + Flask Connection</h1>
+      <h1>React + Flask Connections</h1>
       <p>Message From backend: <strong>{message}</strong></p>
 
-       <h3>Data List:</h3>
+       <h3>Data List</h3>
       <ul>
         {myData.map((item, index) => (
           <li key={index}>{item}</li>
