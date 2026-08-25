@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Just Byte Coder</title>
+    <!-- Correct way to link JavaScript -->
+    <!-- <script src="scripts.js"></script> -->
+
+    <!-- Correct way to link CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div>
+        <h1>Welcome to the Just Bytes Coders</h1>
+    </div>
+    <form action="/submit-form-endpoint" method="GET">
+    <!-- First Name Input -->
+    <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+    </div>
+
+    <!-- Last Name Input -->
+    <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+    </div>
+
+    <!-- Date of Birth Input -->
+    <div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">Submit</button>
+</form>
+
+<table border="1" style="width: 100%;">
+    <!-- Row 1: Header Row -->
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date of Birth</th>
+    </tr>
+    
+    <!-- Row 2: Data Row -->
+    <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>1995-08-25</td>
+    </tr>
+</table>
+
+<script>
+        function showAlert() {
+            alert("Hello! This is JavaScript running inside HTML!");
+        }
+        // alert("hello")
+        showAlert();
+        console.log("hello this is scripts");
+        let name = document.getElementById("firstName").value;
+        alert("Hello " + name);
+
+
+       window.alert("Hello"); 
+    //    alert("Hello"); 
+    </script>
+
+
+</body>
+</html>
